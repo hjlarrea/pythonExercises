@@ -13,8 +13,9 @@
 def printArticle(uri):
     # Orchestrates getting the links for each page, the content for each page and returns the article
     pages = [uri] + findPages(uri,[])
+    article = ''
     for i in range(0,len(pages)):
-        article += getPageContent(pages[i],i+1)
+        article+=getPageContent(pages[i],i+1)
     return article
 
 def findPages(uri,uris):
@@ -30,11 +31,16 @@ def findPages(uri,uris):
         return []
 
 def getPageContent(uri,pageNumber):
+    import requests
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(requests.get(uri).text,'html.parser')
     if pageNumber == 1:
-        pass
+        article = soup.title.text
+        article += soup.p.text
     else:
-        pass
+        article = soup.p.text
+    return article
 
 if __name__ == "__main__":
     uri = 'https://www.washingtonpost.com/wp-dyn/articles/A2623-2005Mar26.html'
-    printArticle(uri)
+    print(printArticle(uri))
