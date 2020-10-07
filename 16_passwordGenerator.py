@@ -21,7 +21,7 @@ def generateStrongPassword(length):
 def generateWeakPassword():
     from random import randint
 
-    with open('./palabras_todas.txt') as fileContent:
+    with open('./16_palabras_todas.txt') as fileContent:
         content = fileContent.readlines()
 
     return content[randint(0,len(content))].split("\n")[0]+content[randint(0,len(content))].split("\n")[0]

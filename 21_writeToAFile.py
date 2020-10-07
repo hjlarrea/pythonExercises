@@ -11,4 +11,6 @@ from _19_decodeAWebPageTwo import printArticle
 
 if __name__ == "__main__":
     uri = 'https://www.washingtonpost.com/wp-dyn/articles/A2623-2005Mar26.html'
-    article = printArticle(uri)
+
+    with open('21_article.txt', 'w') as open_file:
+        open_file.write(printArticle(uri))
