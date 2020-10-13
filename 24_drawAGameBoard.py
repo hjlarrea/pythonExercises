@@ -22,14 +22,14 @@
 
 def printBoard(size):
     board = ""
-    for _ in range(1,size+1):
-        for _ in range(1,size+1):
+    for _ in range(0,size):
+        for _ in range(0,size):
             board = board + " ---"
         board = board + "\n"
-        for _ in range(1,size+1):
+        for _ in range(0,size):
             board = board + "| {0} ".format("x")
         board = board + "|\n"
-    for _ in range(1,size+1):
+    for _ in range(0,size):
         board = board + " ---"
     print(board)
 
